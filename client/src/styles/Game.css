@@ -1,0 +1,48 @@
+.header {
+    height: 50px;
+}
+
+.game-page {
+    display: flex;
+}
+
+.game-page-sidebar {
+    width: max(240px, 15vw);
+    height: calc(100vh - 50px);
+    background: lightgray;
+    padding: 20px;
+    float: left;
+    margin-right: 20px;
+}
+
+.game-page-sidebar-item {
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.game-page-sidebar-image {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.game-page-sidebar-image:hover {
+    box-shadow: 0 0 10px blue;
+}
+
+.game-page-sidebar-item:focus {
+    box-shadow: 0 0 10px blue;
+}
+
+.game-page-main {
+    outline: 5px dotted yellow;
+    float: left;
+    padding: 20px;
+    height: calc(100vh - 50px);
+}
+
+.game-page-main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
