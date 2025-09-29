@@ -1,0 +1,38 @@
+// React component (e.g., App.js)
+import React, { useState } from 'react';
+
+function App() {
+  const [inputValue, setInputValue] = useState('');
+  const [echoedValue, setEchoedValue] = useState('');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('/echo', { // Replace with your Node.js server URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: inputValue }),
+      });
+      const data = await response.json();
+      setEchoedValue(data.echoedInput);
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>{"Applications of Software Architecture for Big Data: MVP"}</h1>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <button onClick={handleSubmit}>Submit</button>
+      {echoedValue && <p>User typed: {echoedValue}</p>}
+    </div>
+  );
+}
+
+export default App;
