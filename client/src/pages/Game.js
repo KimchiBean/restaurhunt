@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory} from 'react-router-dom';
 import '../styles/Game.css';
 import img1 from "../assets/nyc.jpg";
 import img2 from "../assets/food-1.png";
@@ -21,6 +21,12 @@ const images = [
 ];
 
 const Game = () => {
+  const history = useHistory();
+
+  const handleNavigateHome = () => {
+    history.push('/');
+  }
+
   const [selectedImage, setImage] = useState(0);
 
   const handleClick = (index) => {
@@ -29,7 +35,10 @@ const Game = () => {
 
   return(
     <div>
-        <h3 className='header'>Discover new places and experience cuisines from around the world</h3>
+        <div className="header-container">
+          <h3 onClick={handleNavigateHome}>RESTAURHUNT</h3>
+          <p>Daily Puzzle</p>
+        </div>
         <div className='game-page'>
           <div className='game-page-sidebar'>
             {
